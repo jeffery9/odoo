@@ -1,5 +1,6 @@
 ============================
 Odoo Technical Documentation
+Odoo技术文档
 ============================
 
 .. todo:: what's the documentation's license?
