@@ -1,21 +1,22 @@
 .. queue:: website/series
 
 ==================
-Building a website
+制作网站
 ==================
 
-.. warning::
+.. 警告::
 
-    * This guide assumes `basic knowledge of Python
+    * 你需要先掌握 `Python的基础知识
       <http://docs.python.org/2/tutorial/>`_
-    * This guide assumes an installed Odoo
+    * 你需要已安装好odoo
     * For production deployment, see the :ref:`dedicated deployment guides
       <guides/deployment>`
 
-Creating a basic module
+创建一个基础模块
 =======================
 
 In Odoo, tasks are performed by creating modules.
+在Odoo里，开发东西都是从建立新模块开始。
 
 Modules customize the behavior of an Odoo installation, either by adding new
 behaviors or by altering existing ones (including behaviors added by other
