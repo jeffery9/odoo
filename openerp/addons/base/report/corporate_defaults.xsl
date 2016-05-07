@@ -13,14 +13,14 @@
 
 	<xsl:template name="first_page_graphics_corporation">
 		<!--logo-->
-		<setFont name="Helvetica" size="14"/>
+		<setFont name="SimSun" size="14"/>
 		<fill color="black"/>
 		<stroke color="black"/>
 		<drawString x="1cm" y="27.6cm"><xsl:value-of select="//corporate-header/corporation/name"/></drawString>
 		<lines>1cm 28.4cm 20cm 28.4cm</lines>
 		<lines>1cm 25.4cm 7cm 25.4cm</lines>
 
-		<setFont name="Helvetica" size="10"/>
+		<setFont name="SimSun" size="10"/>
 		<drawRightString x="20cm" y="28.5cm"><xsl:value-of select="//corporate-header/corporation/rml_header1"/></drawRightString>
 		<drawString x="1cm" y="27cm"><xsl:value-of select="//corporate-header/corporation/street"/></drawString>
 		<drawString x="1cm" y="26.5cm">
@@ -47,14 +47,14 @@
 
 	<xsl:template name="other_pages_graphics_corporation">
 		<!--logo-->
-		<setFont name="Helvetica" size="14"/>
+		<setFont name="SimSun" size="14"/>
 		<fill color="black"/>
 		<stroke color="black"/>
 		<drawString x="1cm" y="27.6cm"><xsl:value-of select="//corporate-header/corporation/name"/></drawString>
 		<lines>1cm 25.4cm 20cm 25.4cm</lines>
 <!--		<lines>1cm 25.7cm 7cm 25.7cm</lines>-->
 
-		<setFont name="Helvetica" size="10"/>
+		<setFont name="SimSun" size="10"/>
 		<drawRightString x="1cm" y="27.5cm"><xsl:value-of select="//corporate-header/corporation/rml_header1"/></drawRightString>
 		<drawString x="1cm" y="27cm"><xsl:value-of select="//corporate-header/corporation/street"/></drawString>
 		<drawString x="1cm" y="26.5cm">

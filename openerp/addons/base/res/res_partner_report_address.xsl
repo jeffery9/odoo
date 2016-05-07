@@ -23,7 +23,7 @@
 				</pageTemplate>
 			</template>
 			<stylesheet>
-				<paraStyle name="nospace" fontName="Courier" fontSize="12" spaceBefore="0" spaceAfter="0"/>
+				<paraStyle name="nospace" fontName="SimSun" fontSize="12" spaceBefore="0" spaceAfter="0"/>
 			</stylesheet>
 			<story>
 				<xsl:apply-templates select="address" mode="story">

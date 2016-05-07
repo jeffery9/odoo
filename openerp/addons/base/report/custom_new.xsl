@@ -13,7 +13,7 @@
 	<!-- stylesheet -->
 
 	<xsl:template name="stylesheet">
-		<paraStyle name="title" fontName="Helvetica-Bold" fontSize="22" alignment="center"/>
+		<paraStyle name="title" fontName="SimSun" fontSize="22" alignment="center"/>
 		<paraStyle name="test" alignment="left" />
         <paraStyle name="float_right" alignment="left"/>
         <paraStyle name="tbl_heading" alignment="left"/>
@@ -57,7 +57,7 @@
 		<tr>
 		<xsl:for-each select="field">
 			<td>
-			<para style="tbl_heading"><font fontName="Helvetica-Bold" fontSize="9">
+			<para style="tbl_heading"><font fontName="SimSun" fontSize="9">
 			<xsl:value-of select="."/></font>
 			</para>
 			</td>
@@ -83,20 +83,20 @@
 						<xsl:when test="@tree='yes'">
 							<para style="test">
 								<xsl:attribute name="leftIndent"><xsl:value-of select="@space"/></xsl:attribute>
-								<font fontName="Helvetica" fontSize="9">
+								<font fontName="SimSun" fontSize="9">
 								<xsl:value-of select="."/>
 								</font>
 							</para>
 						</xsl:when>
                        <xsl:when test="@tree='float'">
-                           <para style="float_right"><font fontName="Helvetica" fontSize="9">
+                           <para style="float_right"><font fontName="SimSun" fontSize="9">
                                <xsl:value-of select="."/>
                                </font></para>
                        </xsl:when>
 
 						<xsl:otherwise>
 							<para style="test">
-								<font fontName="Helvetica" fontSize="9">
+								<font fontName="SimSun" fontSize="9">
 								<xsl:value-of select="."/>
 								</font>
 							</para>
@@ -108,13 +108,13 @@
 						<xsl:when test="@tree='yes'">
 							<para>
 								<xsl:attribute name="leftIndent"><xsl:value-of select="@space"/></xsl:attribute>
-								<font fontName="Helvetica-bold" fontSize="9">
+								<font fontName="SimSun" fontSize="9">
 								<xsl:value-of select="."/>
 								</font>
 							</para>
 						</xsl:when>
                        <xsl:when test="@tree='float'">
-                           <para style="float_right"><font fontName="Helvetica-bold" fontSize="9" color="black">
+                           <para style="float_right"><font fontName="SimSun" fontSize="9" color="black">
                                <xsl:value-of select="."/>
                                </font></para>
                        </xsl:when>
@@ -123,7 +123,7 @@
                                 <xsl:attribute name="leftIndent">
                                     <xsl:value-of select="@space"/>
                                 </xsl:attribute>
-                                <font fontName="Helvetica-Bold" fontSize="9" color="gray">
+                                <font fontName="SimSun" fontSize="9" color="gray">
                                     <xsl:value-of select="."/>
                                 </font>
                             </para>
@@ -131,7 +131,7 @@
 
 						<xsl:otherwise>
 							<para>
-								<font fontName="Helvetica-bold" fontSize="9" color="black">
+								<font fontName="SimSun" fontSize="9" color="black">
 								<xsl:value-of select="."/>
 								</font>
 							</para>

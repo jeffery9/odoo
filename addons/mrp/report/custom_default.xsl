@@ -15,9 +15,9 @@
 		<!--logo-->
 		<fill color="black"/>
         <stroke color="black"/>
-        <setFont name="DejaVuSans" size="8"/>
+        <setFont name="SimSun" size="8"/>
         <drawString x="1.3cm" y="28.3cm"><xsl:value-of select="//date"/></drawString>
-        <setFont name="DejaVuSans-Bold" size="10"/>
+        <setFont name="SimSun" size="10"/>
         <drawString x="9.8cm" y="28.3cm"><xsl:value-of select="//company"/></drawString>
         <stroke color="#000000"/>
         <lines>1.3cm 28.1cm 20cm 28.1cm</lines>
@@ -29,9 +29,9 @@
 		<!--logo-->
 		<fill color="black"/>
         <stroke color="black"/>
-        <setFont name="DejaVuSans" size="8"/>
+        <setFont name="SimSun" size="8"/>
         <drawString x="1.3cm" y="28.3cm"><xsl:value-of select="//date"/></drawString>
-        <setFont name="DejaVuSans-Bold" size="10"/>
+        <setFont name="SimSun" size="10"/>
         <drawString x="9.8cm" y="28.3cm"><xsl:value-of select="//company"/></drawString>
         <stroke color="#000000"/>
         <lines>1.3cm 28.1cm 20cm 28.1cm</lines>

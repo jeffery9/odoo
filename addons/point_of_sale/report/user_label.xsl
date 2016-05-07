@@ -25,14 +25,14 @@
                 </pageTemplate>
             </template>
             <stylesheet>
-                <paraStyle name="nospace" fontName="Courier" fontSize="10" spaceBefore="0" spaceAfter="0"/>
+                <paraStyle name="nospace" fontName="SimSun" fontSize="10" spaceBefore="0" spaceAfter="0"/>
                 <blockTableStyle id="mytable">
                     <blockBackground colorName="lightred" start="0,0" stop="0,0"/>
                     <blockBackground colorName="lightgrey" start="1,0" stop="-1,0"/>
                     <blockAlignment value="CENTER"/>
                     <blockValign value="MIDDLE"/>
-                    <blockFont name="Helvetica-BoldOblique" size="14" start="0,0" stop="-1,0"/>
-                    <blockFont name="Helvetica" size="8" start="0,1" stop="-1,1"/>
+                    <blockFont name="SimSun" size="14" start="0,0" stop="-1,0"/>
+                    <blockFont name="SimSun" size="8" start="0,1" stop="-1,1"/>
                     <lineStyle kind="GRID" colorName="black" tickness="1"/>
                 </blockTableStyle>
             </stylesheet>

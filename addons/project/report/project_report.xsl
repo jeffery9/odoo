@@ -14,17 +14,17 @@
             </template>
 
             <stylesheet>
-                <paraStyle name="title" fontName="Helvetica-Bold" fontSize="18" alignment="center"/>
-                <paraStyle name="notes" fontName="Helvetica" fontSize="8" alignment="justify"/>
+                <paraStyle name="title" fontName="SimSun" fontSize="18" alignment="center"/>
+                <paraStyle name="notes" fontName="SimSun" fontSize="8" alignment="justify"/>
                 <blockTableStyle id="project">
-                    <blockFont name="Helvetica-Bold" size="10" start="0,0" stop="0,-1"/>
-                    <blockFont name="Helvetica-Bold" size="10" start="2,0" stop="2,-1"/>
+                    <blockFont name="SimSun" size="10" start="0,0" stop="0,-1"/>
+                    <blockFont name="SimSun" size="10" start="2,0" stop="2,-1"/>
                      <blockValign value="TOP"/>
                 </blockTableStyle>
                 <blockTableStyle id="tasks">
                     <blockValign value="TOP"/>
                     <blockAlignment value="LEFT"/>
-                    <blockFont name="Helvetica-Bold" size="10" start="0,0" stop="-1,0"/>
+                    <blockFont name="SimSun" size="10" start="0,0" stop="-1,0"/>
                     <lineStyle kind="LINEABOVE" thickness="0.5" colorName="black" start="0,0" stop="-1,0"/>
                     <lineStyle kind="LINEBELOW" thickness="0.5" colorName="black" start="0,0" stop="-1,0"/>
                     <blockBackground colorName="(0.72,0.72,0.72)" start="0,0" stop="-1,0"/>

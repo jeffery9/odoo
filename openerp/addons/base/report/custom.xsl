@@ -25,7 +25,7 @@
 				</drawCentredString>
 
 				<fill color="(0.2,0.2,0.2)"/>
-				<setFont name="Helvetica" size="10"/>
+				<setFont name="SimSun" size="10"/>
 				<drawCentredString y="10mm">
 					<xsl:attribute name="x">
 						<xsl:value-of select="/report/config/pageWidth div 2"/>
@@ -34,7 +34,7 @@
 				</drawCentredString>
 
 				<fill color="(0.969,0.2,0.2)"/>
-				<setFont name="Helvetica" size="8"/>
+				<setFont name="SimSun" size="8"/>
 				<drawString x="1.5cm">
 					<xsl:attribute name="y">
 						<xsl:value-of select="/report/config/pageHeight - 56.69"/>
@@ -62,13 +62,13 @@
 		</pageTemplate>
 	</template>
 	<stylesheet>
-		<paraStyle name="sum" fontName="Helvetica" textColor="green"/>
-		<paraStyle name="sum_float" fontName="Helvetica" alignment="right" textColor="green"/>
-		<paraStyle name="sum_end" fontName="Helvetica" textColor="red"/>
-		<paraStyle name="sum_float_end" fontName="Helvetica" alignment="right" textColor="red"/>
+		<paraStyle name="sum" fontName="SimSun" textColor="green"/>
+		<paraStyle name="sum_float" fontName="SimSun" alignment="right" textColor="green"/>
+		<paraStyle name="sum_end" fontName="SimSun" textColor="red"/>
+		<paraStyle name="sum_float_end" fontName="SimSun" alignment="right" textColor="red"/>
 		<blockTableStyle id="table">
 			<blockValign value="TOP"/>
-			<blockFont name="Helvetica" size="12" start="0,0" stop="-1,0"/>
+			<blockFont name="SimSun" size="12" start="0,0" stop="-1,0"/>
 			<blockBackground colorName="(0.8,0.8,0.8)" start="0,0" stop="-1,0"/>
 
 			<lineStyle kind="GRID" colorName="lightgrey" thickness="0.3"/>

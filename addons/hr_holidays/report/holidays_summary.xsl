@@ -11,19 +11,19 @@
     </xsl:template>
 
     <xsl:template name="stylesheet">
-                <paraStyle name="normal" fontName="Helvetica" fontSize="6" alignment="left" />
-                <paraStyle name="normal-title" fontName="Helvetica" fontSize="10" alignment="center"/>
-                <paraStyle name="digits" fontName="Helvetica" fontSize="6" alignment="left"/>
-                <paraStyle name="title" fontName="Helvetica" fontSize="18" alignment="center" />
-                <paraStyle name="dept" fontName="Helvetica-Bold" fontSize="8" alignment="left" />
-                <paraStyle name="employee" fontName="Helvetica-Bold" fontSize="6" textColor="black" />
-                <paraStyle name="leaveid" fontName="Helvetica" fontSize="6" alignment="center" />
-                <paraStyle name="print-date" fontName="Helvetica" fontSize="11" alignment="right" />
-                <paraStyle name="sum" fontName="Helvetica-BoldOblique" fontSize="6" alignment="left" />
-                <paraStyle name="company" textColor="purple" fontName="Helvetica-Bold" fontSize="11" alignment="left"/>
+                <paraStyle name="normal" fontName="SimSun" fontSize="6" alignment="left" />
+                <paraStyle name="normal-title" fontName="SimSun" fontSize="10" alignment="center"/>
+                <paraStyle name="digits" fontName="SimSun" fontSize="6" alignment="left"/>
+                <paraStyle name="title" fontName="SimSun" fontSize="18" alignment="center" />
+                <paraStyle name="dept" fontName="SimSun" fontSize="8" alignment="left" />
+                <paraStyle name="employee" fontName="SimSun" fontSize="6" textColor="black" />
+                <paraStyle name="leaveid" fontName="SimSun" fontSize="6" alignment="center" />
+                <paraStyle name="print-date" fontName="SimSun" fontSize="11" alignment="right" />
+                <paraStyle name="sum" fontName="SimSun" fontSize="6" alignment="left" />
+                <paraStyle name="company" textColor="purple" fontName="SimSun" fontSize="11" alignment="left"/>
                 <blockTableStyle id="header">
                        <blockAlignment value="LEFT" start="0,0" stop="-1,-1"/>
-                       <blockFont name="Helvetica" size="8" start="0,0" stop="-1,-1"/>
+                       <blockFont name="SimSun" size="8" start="0,0" stop="-1,-1"/>
                       <blockValign value="TOP"/>
                    </blockTableStyle>
                 <blockTableStyle id="products">
@@ -32,12 +32,12 @@
                      <lineStyle kind="LINEBEFORE" colorName="black" start="0,0" stop="-1,-1"/>
                      <lineStyle kind="LINEAFTER" colorName="black" start="-1,0" stop="-1,-1"/>
                      <lineStyle kind="LINEBELOW" colorName="black" start="0,-1" stop="-1,-1"/>
-                     <blockFont name="Helvetica-Bold" size="8" start="0,-1" stop="-1,-1"/>
+                     <blockFont name="SimSun" size="8" start="0,-1" stop="-1,-1"/>
                      <blockValign value="TOP"/>
                 </blockTableStyle>
                 <blockTableStyle id="legend">
                     <blockAlignment value="CENTER" start="0,0" stop="-1,-1" />
-                    <blockFont name="Helvetica" size="7" start="0,0" stop="-1,-1"/>
+                    <blockFont name="SimSun" size="7" start="0,0" stop="-1,-1"/>
                     <lineStyle kind="LINEABOVE" colorName="black" start="0,0" stop="-1,-1" />
                     <lineStyle kind="LINEBEFORE" colorName="black" start="0,0" stop="-1,-1"/>
                     <lineStyle kind="LINEAFTER" colorName="black" start="-1,0" stop="-1,-1"/>
@@ -62,8 +62,8 @@
                 </blockTableStyle>
                 <blockTableStyle id="month">
                     <blockAlignment value="CENTER" start="1,0" stop="-1,-1" />
-                    <blockFont name="Helvetica" size="5" start="0,0" stop="-1,-1"/>
-                    <blockFont name="Helvetica-BoldOblique" size="4.5" start="-1,0" stop="-1,-1"/>
+                    <blockFont name="SimSun" size="5" start="0,0" stop="-1,-1"/>
+                    <blockFont name="SimSun" size="4.5" start="-1,0" stop="-1,-1"/>
                     <blockBackground colorName="#FFFFFF" start="1,0" stop="-2,1"/>
                     <xsl:for-each select="/report/days/dayy[@name='Sat' or @name='Sun']">
                         <xsl:variable name="col" select="attribute::cell" />
