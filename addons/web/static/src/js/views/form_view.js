@@ -71,6 +71,7 @@ var FormView = View.extend(common.FieldManagerMixin, {
         this.reload_mutex = new utils.Mutex();
         this.__clicked_inside = false;
         this.__blur_timeout = null;
+        this.__last_update = new Date().toUTCString();
         this.rendering_engine = new FormRenderingEngine(this);
         this.set({actual_mode: this.options.initial_mode});
         this.has_been_loaded.done(function() {
@@ -853,7 +854,15 @@ var FormView = View.extend(common.FieldManagerMixin, {
                         save_deferral = $.Deferred().resolve({}).promise();
                     } else {
                         // Write save
-                        save_deferral = self.dataset.write(self.datarecord.id, values, {readonly_fields: readonly_values}).then(function(r) {
+
+                        var options =[]
+                        var val = {}
+                        var key = _.str.sprintf("%s,%s", self.model, self.datarecord.id);
+                        val[key] = self.__last_update;
+                        options['context'] = { '__last_update' : val};
+                        options['readonly_fields'] = readonly_values;
+
+                        save_deferral = self.dataset.write(self.datarecord.id, values, options).then(function(r) {
                             self.display_translation_alert(values);
                             return self.record_saved(r);
                         }, null);
