@@ -71,7 +71,6 @@ var FormView = View.extend(common.FieldManagerMixin, {
         this.reload_mutex = new utils.Mutex();
         this.__clicked_inside = false;
         this.__blur_timeout = null;
-        this.__last_update = new Date().toUTCString();
         this.rendering_engine = new FormRenderingEngine(this);
         this.set({actual_mode: this.options.initial_mode});
         this.has_been_loaded.done(function() {
@@ -297,6 +296,7 @@ var FormView = View.extend(common.FieldManagerMixin, {
     },
     load_record: function(record) {
         var self = this, set_values = [];
+        self.__last_update = new Date().toUTCString();
         if (!record) {
             this.set({ 'title' : undefined });
             this.do_warn(_t("Form"), _t("The record could not be found in the database."), true);
@@ -869,6 +869,7 @@ var FormView = View.extend(common.FieldManagerMixin, {
                     }
                     save_deferral.then(function(result) {
                         def_process_save.resolve(result);
+                        self.__last_update = new Date().toUTCString();
                     }).fail(function() {
                         def_process_save.reject();
                     });
@@ -898,6 +899,7 @@ var FormView = View.extend(common.FieldManagerMixin, {
      */
     record_saved: function(r) {
         this.trigger('record_saved', r);
+        this.trigger('load_record', r);
         if (!r) {
             // should not happen in the server, but may happen for internal purpose
             return $.Deferred().reject();
