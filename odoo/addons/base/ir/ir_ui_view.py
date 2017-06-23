@@ -328,13 +328,22 @@ actual arch.
                     view_docs = view_docs[0]
                 validator = self._relaxng()
                 for view_arch in view_docs:
-                    version = view_arch.get('version', '7.0')
-                    if parse_version(version) < parse_version('7.0') and validator and not validator.validate(view_arch):
-                        for error in validator.error_log:
-                            _logger.error(tools.ustr(error))
-                        raise ValidationError(_('Invalid view definition'))
-                    if not valid_view(view_arch):
-                        raise ValidationError(_('Invalid view definition'))
+                    if view.type in ['form', 'kanban']:
+                        if not valid_view(view_arch):
+                            raise ValidationError(_('Invalid view definition'))
+                    if view.type in ['search', 'calendar', 'gantt']:
+                        if validator and not validator.validate(view_arch):
+                            for error in validator.error_log:
+                                _logger.error(tools.ustr(error))
+                            raise ValidationError(_('Invalid view definition'))
+
+                    # version = view_arch.get('version', '7.0')
+                    # if parse_version(version) < parse_version('7.0') and validator and not validator.validate(view_arch):
+                    #     for error in validator.error_log:
+                    #         _logger.error(tools.ustr(error))
+                    #     raise ValidationError(_('Invalid view definition'))
+                    # if not valid_view(view_arch):
+                    #     raise ValidationError(_('Invalid view definition'))
         return True
 
     @api.constrains('type', 'groups_id')
