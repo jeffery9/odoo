@@ -75,6 +75,43 @@
         </rng:zeroOrMore>
     </rng:define>
 
+    <rng:define name="diagram">
+        <rng:element name="diagram">
+            <rng:optional><rng:attribute name="create" /></rng:optional>
+            <rng:optional><rng:attribute name="string"/></rng:optional>
+            <rng:ref name="node"/>
+            <rng:ref name="arrow"/>            
+            <rng:zeroOrMore>
+                <rng:ref name="label"/>
+            </rng:zeroOrMore>
+        </rng:element>
+    </rng:define>
+
+    <rng:define name="node">
+        <rng:element name="node">
+            <rng:attribute name="object"/>
+            <rng:optional><rng:attribute name="shape"/></rng:optional>
+            <rng:optional><rng:attribute name="bgcolor"/></rng:optional>
+            <rng:optional><rng:attribute name="form_view_ref"/></rng:optional>
+            <rng:oneOrMore>
+              <rng:ref name="field"/>
+            </rng:oneOrMore>
+        </rng:element>
+    </rng:define>
+
+    <rng:define name="arrow">
+        <rng:element name="arrow">
+            <rng:attribute name="object" />
+            <rng:attribute name="source" />
+            <rng:attribute name="destination" />
+            <rng:optional><rng:attribute name="form_view_ref"/></rng:optional>
+            <rng:optional><rng:attribute name="label"/></rng:optional>
+            <rng:oneOrMore>
+              <rng:ref name="field"/>
+            </rng:oneOrMore>
+        </rng:element>
+    </rng:define>
+
     <rng:define name="tree">
         <rng:element name="tree">
             <rng:ref name="overload"/>
@@ -209,15 +246,22 @@
                 <rng:attribute name="date_stop"/>
                 <rng:attribute name="date_delay"/>
             </rng:choice>
-            <rng:optional>
+            <!-- <rng:optional>
                 <rng:attribute name="progress">
                     <rng:data type="int"/>
                 </rng:attribute>
-            </rng:optional>
+            </rng:optional> -->
+            <rng:optional><rng:attribute name="progress"/></rng:optional>
+            <rng:optional><rng:attribute name="string"/></rng:optional>
+            <rng:optional><rng:attribute name="type"/></rng:optional>
             <rng:optional><rng:attribute name="default_group_by"/></rng:optional>
             <rng:optional><rng:attribute name="create"/></rng:optional>
             <rng:optional><rng:attribute name="delete"/></rng:optional>
             <rng:optional><rng:attribute name="edit"/></rng:optional>
+            <rng:optional><rng:attribute name="fold_last_level"/></rng:optional>
+            <rng:optional><rng:attribute name="round_dnd_dates"/></rng:optional>
+            <rng:optional><rng:attribute name="consolidation"/></rng:optional>
+            <rng:optional><rng:attribute name="consolidation_max"/></rng:optional>
             <rng:empty/>
         </rng:element>
     </rng:define>
@@ -291,6 +335,7 @@
                     <rng:ref name="button"/>
                     <rng:ref name="group"/>
                     <rng:ref name="filter"/>
+                    <rng:ref name="graph"/>
                     <rng:ref name="html"/>
                     <rng:element name="newline"><rng:empty/></rng:element>
                 </rng:choice>
@@ -306,6 +351,7 @@
             <rng:ref name="modifiable"/>
             <rng:optional><rng:attribute name="domain_filter"/></rng:optional>
             <rng:optional><rng:attribute name="attrs"/></rng:optional>
+            <rng:optional><rng:attribute name="class"/></rng:optional>
             <rng:optional><rng:attribute name="string"/></rng:optional>
             <rng:optional><rng:attribute name="completion"/></rng:optional>
             <rng:optional><rng:attribute name="width"/></rng:optional>
@@ -363,6 +409,7 @@
             <rng:optional><rng:attribute name="placeholder"/></rng:optional>
             <rng:zeroOrMore>
                 <rng:choice>
+                    <rng:ref name="diagram"/>
                     <rng:ref name="data"/>
                     <rng:ref name="tree"/>
                     <rng:ref name="field"/>
@@ -371,6 +418,7 @@
                     <rng:ref name="xpath"/>
                     <rng:ref name="button"/>
                     <rng:ref name="group"/>
+                    <rng:ref name="graph"/>
                     <rng:ref name="filter"/>
                     <rng:ref name="html"/>
                     <rng:element name="newline"><rng:empty/></rng:element>
@@ -396,6 +444,9 @@
             <rng:optional><rng:attribute name="name"/></rng:optional>
             <rng:optional><rng:attribute name="color" /></rng:optional>
             <rng:optional><rng:attribute name="invisible"/></rng:optional>
+            <rng:zeroOrMore>
+                <rng:ref name="field"/>
+            </rng:zeroOrMore>
             <rng:ref name="container"/>
         </rng:element>
     </rng:define>
@@ -435,6 +486,43 @@
         </rng:element>
     </rng:define>
 
+    <rng:define name="graph">
+        <rng:element name="graph">
+            <rng:optional><rng:attribute name="string" /></rng:optional>
+            <rng:optional>
+                <rng:attribute name="type">
+                    <rng:choice>
+                        <rng:value>bar</rng:value>
+                        <rng:value>pie</rng:value>
+                        <rng:value>line</rng:value>
+                        <rng:value>pivot</rng:value>
+                    </rng:choice>
+                </rng:attribute>
+            </rng:optional>
+            <rng:optional>
+                <rng:attribute name="stacked"><rng:value>True</rng:value></rng:attribute>
+            </rng:optional>
+            <rng:zeroOrMore>
+                <rng:ref name="field"/>
+            </rng:zeroOrMore>
+        </rng:element>
+    </rng:define>
+
+    <rng:define name="pivot">
+        <rng:element name="pivot">
+            <rng:optional><rng:attribute name="string" /></rng:optional>
+            <rng:optional>
+                <rng:attribute name="display_quantity"><rng:value>False</rng:value></rng:attribute>
+            </rng:optional>
+            <rng:optional>
+                <rng:attribute name="disable_linking"><rng:value>False</rng:value></rng:attribute>
+            </rng:optional>
+            <rng:zeroOrMore>
+                <rng:ref name="field"/>
+            </rng:zeroOrMore>
+        </rng:element>
+    </rng:define>
+
     <rng:define name="button">
         <rng:element name="button">
             <rng:ref name="overload"/>
@@ -461,6 +549,7 @@
                 <rng:choice>
                     <rng:ref name="field" />
                     <rng:ref name="tree" />
+                    <rng:ref name="graph" />
                     <rng:ref name="calendar" />
                     <rng:ref name="gantt" />
                     <rng:ref name="xpath" />
@@ -482,6 +571,7 @@
             <rng:ref name="access_rights"/>
             <rng:ref name="modifiable"/>
             <rng:optional><rng:attribute name="attrs"/></rng:optional>
+            <rng:optional><rng:attribute name="icon"/></rng:optional>
             <rng:optional><rng:attribute name="invisible"/></rng:optional>
             <rng:optional><rng:attribute name="name" /></rng:optional>
             <rng:optional><rng:attribute name="separator" /></rng:optional>
@@ -497,6 +587,8 @@
                 <rng:choice>
                     <rng:ref name="field" />
                     <rng:ref name="tree" />
+                    <rng:ref name="graph" />
+                    <rng:ref name="pivot" />
                     <rng:ref name="calendar" />
                     <rng:ref name="gantt" />
                     <rng:ref name="xpath" />
@@ -513,10 +605,13 @@
 
     <rng:start>
         <rng:choice>
+            <rng:ref name="diagram" />
             <rng:ref name="search" />
             <rng:ref name="group" />
             <rng:ref name="field" />
             <rng:ref name="tree" />
+            <rng:ref name="graph" />
+            <rng:ref name="pivot" />
             <rng:ref name="calendar" />
             <rng:ref name="data" />
             <rng:ref name="gantt" />
