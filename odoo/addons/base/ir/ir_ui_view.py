@@ -331,7 +331,7 @@ actual arch.
                     if view.type in ['form', 'kanban']:
                         if not valid_view(view_arch):
                             raise ValidationError(_('Invalid view definition'))
-                    if view.type in ['search', 'calendar', 'gantt', 'tree']:
+                    if view.type in ['search', 'calendar', 'gantt', 'tree', 'graph', 'pivot']:
                         if validator and not validator.validate(view_arch):
                             for error in validator.error_log:
                                 _logger.error(tools.ustr(error))

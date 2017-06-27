@@ -115,6 +115,7 @@
     <rng:define name="tree">
         <rng:element name="tree">
             <rng:ref name="overload"/>
+            <rng:optional><rng:attribute name="name" /></rng:optional>
             <rng:optional><rng:attribute name="create" /></rng:optional>
             <rng:optional><rng:attribute name="delete" /></rng:optional>
             <rng:optional><rng:attribute name="edit" /></rng:optional>
@@ -262,6 +263,7 @@
             <rng:optional><rng:attribute name="round_dnd_dates"/></rng:optional>
             <rng:optional><rng:attribute name="consolidation"/></rng:optional>
             <rng:optional><rng:attribute name="consolidation_max"/></rng:optional>
+            <rng:optional><rng:attribute name="consolidation_exclude"/></rng:optional>
             <rng:empty/>
         </rng:element>
     </rng:define>
@@ -499,9 +501,12 @@
                     </rng:choice>
                 </rng:attribute>
             </rng:optional>
-            <rng:optional>
+            <!-- <rng:optional>
                 <rng:attribute name="stacked"><rng:value>True</rng:value></rng:attribute>
-            </rng:optional>
+            </rng:optional> -->
+            <rng:optional><rng:attribute name="stacked"/></rng:optional>
+            <rng:optional><rng:attribute name="orientation"/></rng:optional>
+            <rng:optional><rng:attribute name="interval"/></rng:optional>
             <rng:zeroOrMore>
                 <rng:ref name="field"/>
             </rng:zeroOrMore>
@@ -511,12 +516,15 @@
     <rng:define name="pivot">
         <rng:element name="pivot">
             <rng:optional><rng:attribute name="string" /></rng:optional>
-            <rng:optional>
+            <!-- <rng:optional>
                 <rng:attribute name="display_quantity"><rng:value>False</rng:value></rng:attribute>
             </rng:optional>
             <rng:optional>
                 <rng:attribute name="disable_linking"><rng:value>False</rng:value></rng:attribute>
-            </rng:optional>
+            </rng:optional> -->
+            <rng:optional><rng:attribute name="stacked"/></rng:optional>
+            <rng:optional><rng:attribute name="display_quantity"/></rng:optional>
+            <rng:optional><rng:attribute name="disable_linking"/></rng:optional>
             <rng:zeroOrMore>
                 <rng:ref name="field"/>
             </rng:zeroOrMore>
