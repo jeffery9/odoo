@@ -101,6 +101,8 @@ def load_module_graph(cr, graph, status=None, perform_checks=True, skip_modules=
     loaded_modules = []
     registry = odoo.registry(cr.dbname)
     migrations = odoo.modules.migration.MigrationManager(cr, graph)
+    _logger.info('migrations %s ...', migrations.migrations)
+    
     module_count = len(graph)
     _logger.info('loading %d modules...', module_count)
 

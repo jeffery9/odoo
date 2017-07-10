@@ -78,6 +78,8 @@ class MigrationManager(object):
         }
         state = pkg.state if stage in ('pre', 'post') else getattr(pkg, 'load_state', None)
 
+        _logger.info(' \n +++ pkg: %s   \n +++ state: %s' %(pkg, stage))
+
         if not (hasattr(pkg, 'update') or state == 'to upgrade') or state == 'to install':
             return
 
@@ -121,8 +123,19 @@ class MigrationManager(object):
 
         versions = _get_migration_versions(pkg)
 
+        _logger.info( 'versions:')
+        _logger.info( versions)
+        _logger.info( 'current_version:')
+        _logger.info( current_version)
+        _logger.info( 'installed_version:')
+        _logger.info( parsed_installed_version)
+
         for version in versions:
+
             if parsed_installed_version < parse_version(convert_version(version)) <= current_version:
+
+                _logger.info( 'hit...')
+                _logger.info( version)
 
                 strfmt = {'addon': pkg.name,
                           'stage': stage,
