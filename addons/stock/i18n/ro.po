@@ -1339,6 +1339,12 @@ msgid "Change to a better name"
 msgstr "Schimbați la un nume mai bun"
 
 #. module: stock
+#: code:addons/stock/models/stock_quant.py:0
+#, python-format
+msgid "Changing %s is restricted, you can't do this operation."
+msgstr ""
+
+#. module: stock
 #: code:addons/stock/models/product_strategy.py:0
 #: code:addons/stock/models/stock_location.py:0
 #: code:addons/stock/models/stock_orderpoint.py:0
@@ -8796,8 +8802,8 @@ msgid ""
 "When products are needed in <b>%s</b>, <br/> <b>%s</b> are created from "
 "<b>%s</b> to fulfill the need."
 msgstr ""
-"Atunci când sunt necesare produse în <b>%s</b>,<br/><b>%s</b>sunt create de "
-"la <b>%s</b>pentru a satisface nevoia.  "
+"Atunci când sunt necesare produse în <b>%s</b>, documente de tipul "
+"<br/><b>%s</b> sunt create de la <b>%s</b> pentru a satisface nevoia.  "
 
 #. module: stock
 #: code:addons/stock/models/stock_rule.py:0

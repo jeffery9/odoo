@@ -761,6 +761,9 @@ odoo.define('pos_coupon.pos', function (require) {
                     return program.promo_applicability === 'on_next_order';
                 });
         },
+        _convertToDate: function (stringDate) {
+            return new Date(stringDate.replace(/ /g, 'T').concat('Z'))
+        },
         /**
          * @param {coupon.program} program
          * @returns {{ successful: boolean, reason: string | undefined }}
@@ -806,7 +809,8 @@ odoo.define('pos_coupon.pos', function (require) {
 
             // Check if valid customer
             const customer = this.get_client();
-            if (program.rule_partners_domain && !program.valid_partner_ids.has(customer ? customer.id : 0)) {
+            const partnersDomain = program.rule_partners_domain || '[]';
+            if (partnersDomain !== '[]' && !program.valid_partner_ids.has(customer ? customer.id : 0)) {
                 return {
                     successful: false,
                     reason: "Current customer can't avail this program.",
@@ -814,8 +818,8 @@ odoo.define('pos_coupon.pos', function (require) {
             }
 
             // Check rule date
-            const ruleFrom = program.rule_date_from ? new Date(program.rule_date_from) : new Date(-8640000000000000);
-            const ruleTo = program.rule_date_to ? new Date(program.rule_date_to) : new Date(8640000000000000);
+            const ruleFrom = program.rule_date_from ? this._convertToDate(program.rule_date_from) : new Date(-8640000000000000);
+            const ruleTo = program.rule_date_to ? this._convertToDate(program.rule_date_to) : new Date(8640000000000000);
             const orderDate = new Date();
             if (!(orderDate >= ruleFrom && orderDate <= ruleTo)) {
                 return {
@@ -1170,4 +1174,6 @@ odoo.define('pos_coupon.pos', function (require) {
             return result;
         },
     });
+
+    return {CouponCode, RewardsContainer, Reward};
 });
